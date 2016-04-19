@@ -239,7 +239,8 @@ KUBE_APISERVER_OPTS="\
  --advertise-address=${4}\
  --client-ca-file=/srv/kubernetes/ca.crt\
  --tls-cert-file=/srv/kubernetes/server.cert\
- --tls-private-key-file=/srv/kubernetes/server.key"
+ --tls-private-key-file=/srv/kubernetes/server.key"\
+ --allow-privileged=true
 EOF
 }
 
@@ -286,6 +287,7 @@ KUBELET_OPTS="\
  --cluster-dns=${3} \
  --cluster-domain=${4} \
  --config=${5} \
+ --allow-privileged=true \
  $cni_opts"
 EOF
 }
